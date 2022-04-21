@@ -1,0 +1,122 @@
+@import url("https://fonts.googleapis.com/css?family=Playfair+Display:600,900|Poppins:400,700,900");
+
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --fg: #333;
+  --bg: #f0ece7;
+  --light-color: #efefef;
+
+  --primary-color: #0f3342;
+  --secondary-color: #00201f;
+  --accent-color: #f28818;
+  --text-color: var(--fg);
+}
+
+html {
+  height: 100vh;
+}
+
+body {
+  height: 100%;
+  line-height: 1.6;
+  font-family: Poppins, serif;
+  font-size: 20px;
+  background: var(--bg);
+  color: var(--fg);
+}
+
+.infobar {
+  display: flex;
+  position: sticky;
+  height: 50px;
+  top: 0;
+  left: 0;
+  background-color: var(--primary-color);
+  text-align: center;
+}
+
+.infobar > a {
+  margin: auto;
+  width: 100%;
+  font-size: 18px;
+  letter-spacing: 1px;
+  color: var(--light-color);
+  text-decoration: none;
+  user-select: none;
+}
+
+.banner {
+  padding: 7em 8rem;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-image: linear-gradient(130deg, #b8e1fe 0%, #f7e294 90%);
+}
+
+.title {
+  margin-bottom: 0.3em;
+  line-height: 0.9;
+  font-size: calc(3rem + 7vw);
+  font-family: "Playfair Display", serif;
+  font-weight: 600;
+  color: var(--secondary-color);
+}
+
+.subtitle {
+  max-width: min(600px, 40vw);
+}
+
+em {
+  font-style: normal;
+  font-weight: 900;
+  color: var(--accent-color);
+}
+
+.indent {
+  margin-left: 1rem;
+}
+
+.button-container {
+  margin: 2em 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.button {
+  padding: 1em 2em;
+  display: inline-block;
+  line-height: 1;
+  text-decoration: none;
+  border-radius: 10px;
+  border: 4px solid transparent;
+  opacity: 1.0;
+  transition: opacity 200ms;
+  user-select: none;
+}
+
+.button:hover {
+  opacity: 0.9;
+}
+
+.button + .button {
+  margin-left: 2em;
+}
+
+.button.accent {
+  background-color: var(--accent-color);
+  color: var(--light-color);
+}
+
+.button.outline {
+  background-color: transparent;
+  color: var(--fg-color);
+  border: 4px solid var(--primary-color);
+}
