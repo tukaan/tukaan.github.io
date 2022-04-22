@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Playfair+Display:600,900|Poppins:400,700,900");
+@import url("https://fonts.googleapis.com/css?family=Staatliches|Akshar:400,500,700,900|Poppins:700");
 
 
 *,
@@ -10,14 +10,14 @@
 }
 
 :root {
-  --fg: #333;
-  --bg: #f0ece7;
-  --light-color: #efefef;
+  --fg: #f6ebd9;
+  --bg: #ec9f30;
 
-  --primary-color: #0f3342;
+  --primary-color: var(--bg);
   --secondary-color: #00201f;
-  --accent-color: #f28818;
+  --accent-color: #435443;
   --text-color: var(--fg);
+  --dark-color: #353535;
 }
 
 html {
@@ -25,53 +25,129 @@ html {
 }
 
 body {
-  height: 100%;
   line-height: 1.6;
-  font-family: Poppins, serif;
+  font-family: Akshar, sans-serif;
   font-size: 20px;
-  background: var(--bg);
+  background-color: var(--bg);
+  background-image: url("../images/noise.png");
   color: var(--fg);
-}
-
-.infobar {
-  display: flex;
-  position: sticky;
-  height: 50px;
-  top: 0;
-  left: 0;
-  background-color: var(--primary-color);
-  text-align: center;
-}
-
-.infobar > a {
-  margin: auto;
-  width: 100%;
-  font-size: 18px;
   letter-spacing: 1px;
-  color: var(--light-color);
-  text-decoration: none;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  height: 70px;
+  padding: 0 10vw;
+  /*border-bottom: 1px solid #d27542;*/
+  display: flex;
+  align-items: center;
+  justify-items: space-between;
+}
+
+header .logo {
+  display: inline-flex;
+  align-items: center;
+  float: left;
+  font-family: Staatliches;
   user-select: none;
 }
 
-.banner {
-  padding: 7em 8rem;
+header .logo a {
+  display: inline-flex;
+  align-items: center;
+  column-gap: 1rem;
+  text-decoration: none;
+  color: var(--fg);
+}
+
+header .button {
+  margin: 0;
+  padding: 0.8em 2em;
+  min-width: 20ch;
+  font-size: 16px;
+}
+
+header div {
+  width: 100%;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+}
+
+header div ul {
+  display: flex;
+  list-style: none;
+}
+
+header div ul li {
+  margin: 0 2rem;
+}
+
+header div ul li a {
+  text-decoration: none;
+  color: var(--fg);
+  font-family: Poppins, sans-serif;
+  font-size: 16px;
+  position: relative;
+  user-select: none;
+}
+
+header div ul li a.active::after {
+  content: "";
+  background-color: var(--fg);
+  width: 0.4em;
+  height: 0.4em;
+  border-radius: 50%;
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.banner {
   height: 100%;
-  background-image: linear-gradient(130deg, #b8e1fe 0%, #f7e294 90%);
+  padding: min(16vh, 10vw) 10vw;
+  display: grid;
+  grid-auto-rows: 1fr;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 2rem;
+}
+
+.title__box {
+  display: flex;
+  flex-flow: column;
+  grid-area: 1 / 1 / 2 / 2;
+}
+
+.image__box {
+  grid-area: 1 / 2 / 2 / 2;
+  perspective: 500px;
+}
+
+.image__box img {
+  pointer-events: none;
+  user-select: none;
+  width: 40vw;
+  transform: rotateY(-4deg);
 }
 
 .title {
-  margin-bottom: 0.3em;
+  margin-bottom: 0.2em;
   line-height: 0.9;
-  font-size: calc(3rem + 7vw);
-  font-family: "Playfair Display", serif;
+  font-size: calc(2rem + 7vw);
+  font-family: Staatliches, sans-serif;
   font-weight: 600;
-  color: var(--secondary-color);
+  color: var(--fg);
+  letter-spacing: 0;
 }
 
 .subtitle {
   max-width: min(600px, 40vw);
+  line-height: 1.4;
+}
+
+.subtitle::first-letter {
+  font-size: 2em;
 }
 
 em {
@@ -88,35 +164,35 @@ em {
   margin: 2em 0;
   display: flex;
   flex-wrap: wrap;
+  column-gap: 2rem;
 }
 
 .button {
-  padding: 1em 2em;
+  margin-top: 1rem;
+  padding: 0.8em 1.6em;
   display: inline-block;
   line-height: 1;
   text-decoration: none;
-  border-radius: 10px;
-  border: 4px solid transparent;
-  opacity: 1.0;
-  transition: opacity 200ms;
+  border-radius: 2em;
   user-select: none;
-}
-
-.button:hover {
-  opacity: 0.9;
-}
-
-.button + .button {
-  margin-left: 2em;
+  min-width: 22ch;
+  text-align: center;
+  font-weight: 500;
 }
 
 .button.accent {
   background-color: var(--accent-color);
-  color: var(--light-color);
+  color: var(--fg);
 }
 
-.button.outline {
-  background-color: transparent;
-  color: var(--fg-color);
-  border: 4px solid var(--primary-color);
+.button.primary {
+  background-color: #f6ebd9;
+  color: #dc5e6c;
+}
+
+@media (width < 1000px) {
+  .image__box img {
+    display: none;
+  }
+
 }
