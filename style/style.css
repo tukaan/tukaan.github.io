@@ -25,6 +25,7 @@ html {
 }
 
 body {
+  height: 300vh;
   line-height: 1.6;
   font-family: Akshar, sans-serif;
   font-size: 20px;
