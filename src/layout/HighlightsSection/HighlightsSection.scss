@@ -1,0 +1,29 @@
+@use "src/styles/mixins" as *;
+
+:global(#highlight-section .page-section-inner) {
+	@include flex($direction: column, $align: center);
+	text-align: center;
+	overflow: hidden;
+}
+
+.highlight-image {
+	@include flex($direction: column, $justify: center, $align: center);
+	position: relative;
+	inline-size: 80vw;
+	block-size: 100%;
+	margin-block-start: 40px;
+	text-align: center;
+}
+
+
+@media screen and (width < 1024px) {
+	.highlight-image {
+		inline-size: 100%;
+	}
+}
+
+@media screen and (width < 768px) {
+	.highlight-image {
+		margin-block-start: 48px;
+	}
+}

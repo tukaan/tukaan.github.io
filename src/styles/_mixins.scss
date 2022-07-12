@@ -1,0 +1,166 @@
+@mixin flex(
+	$direction: false,
+	$justify: false,
+	$align: false,
+	$inline: false,
+	$wrap: false,
+	$gap: false
+) {
+	@if $inline {
+		display: inline-flex;
+	} @else {
+		display: flex;
+	}
+
+	@if $direction != false {
+		@if $direction == row {
+			flex-direction: row;
+		} @else if $direction == column {
+			flex-direction: column;
+		} @else if $direction == row-reverse {
+			flex-direction: row-reverse;
+		} @else if $direction == column-reverse {
+			flex-direction: column-reverse;
+		}
+	}
+
+	@if $justify != false {
+		@if $justify == normal {
+			justify-content: normal;
+		} @else if $justify == center {
+			justify-content: center;
+		} @else if $justify == start {
+			justify-content: flex-start;
+		} @else if $justify == end {
+			justify-content: flex-end;
+		} @else if $justify == space-between {
+			justify-content: space-between;
+		} @else if $justify == around {
+			justify-content: space-around;
+		} @else if $justify == space-evenly {
+			justify-content: space-evenly;
+		}
+	}
+
+	@if $align != false {
+		@if $align == normal {
+			align-items: normal;
+		} @else if $align == center {
+			align-items: center;
+		} @else if $align == start {
+			align-items: flex-start;
+		} @else if $align == end {
+			align-items: flex-end;
+		} @else if $align == space-between {
+			align-content: space-between;
+		} @else if $align == around {
+			align-content: space-around;
+		} @else if $align == space-evenly {
+			align-content: space-evenly;
+		}
+	}
+
+	@if $wrap {
+		flex-wrap: wrap;
+	}
+
+	@if $gap {
+		gap: $gap;
+	}
+}
+
+@mixin icon($size: 14px) {
+	inline-size: $size;
+	block-size: auto;
+	fill: currentColor;
+}
+
+
+code[class*="language-"] {
+	all: unset;
+	--blue: hsl(210, 50%, 60%);
+	--blue2: hsl(209, 13%, 35%);
+	--blue3: hsl(210, 15%, 24%);
+	--blue4: hsl(210, 13%, 45%);
+	--blue5: hsl(180, 36%, 54%);
+	--blue6: hsl(221, 12%, 69%);
+	--green: hsl(114, 31%, 68%);
+	--grey: hsl(0, 0%, 20%);
+	--orange: hsl(32, 93%, 66%);
+	--orange2: hsl(32, 85%, 55%);
+	--orange3: hsl(40, 94%, 68%);
+	--pink: hsl(300, 30%, 68%);
+	--red: hsl(357, 79%, 65%);
+	--red2: hsl(13, 93%, 66%);
+	--white: hsl(0, 0%, 97%);
+	--white2: hsl(219, 28%, 88%);
+}
+
+.token.comment {
+	color: var(--blue6);
+}
+
+.token.punctuation {
+	color: var(--white3);
+}
+
+.punctuation-real {
+	color: var(--blue6);
+}
+
+.token.magfunc {
+	color: var(--blue);
+	font-style: italic;
+}
+
+.token.function {
+	color: var(--blue5);
+}
+
+.token.kw-constant,
+.token.bi-pseudo,
+.token.boolean {
+	color: var(--red);
+	font-style: italic;
+}
+
+.token.method,
+.token.variable {
+	color: var(--blue);
+}
+
+.token.class,
+.token.number{
+	color: var(--orange);
+}
+
+.token.keyword,
+.token.scope {
+	color: var(--pink);
+}
+
+.token.builtin,
+.token.decorator,
+.token.exception {
+	color: var(--blue);
+}
+
+.token.string {
+	color: var(--green);
+}
+
+.token.operator {
+	color: var(--red2);
+}
+
+@mixin prism-mariana-light {
+	& {
+		color: var(--fds-text-primary);
+	}
+}
+
+@mixin prism-mariana-dark {
+	& {
+		color: #d8dee9;
+	}
+}

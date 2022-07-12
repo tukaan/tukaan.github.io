@@ -1,0 +1,124 @@
+@use "../mixins" as *;
+
+// Main docs container
+.docs {
+	display: flex;
+	flex: 1 1 auto;
+	background-color: var(--fds-solid-background-base);
+}
+
+// Docs page
+.page {
+	@include flex($direction: column);
+	flex: 1 1 auto;
+	border: {
+		block-start: 1px solid var(--fds-card-stroke-default);
+		inline-start: 1px solid var(--fds-card-stroke-default);
+	}
+	border-top-left-radius: var(--fds-overlay-corner-radius);
+	background-color: var(--fds-layer-background-default);
+	background-clip: padding-box;
+
+	// Inner page
+	// This is mainly here because I didn't want to use
+	// absolute positioning on the mobile search UI.
+	&-inner {
+		flex: 1 1 auto;
+		padding: 10px 56px;
+	}
+
+	// Page header
+	header {
+		@include flex($align: center, $justify: end);
+		margin-block-end: -20px;
+		color: var(--fds-text-tertiary);
+		white-space: nowrap;
+	}
+}
+
+// Docs sidebar
+// Not much to say here
+.sidebar {
+	@include flex($direction: column);
+	flex: 0 0 auto;
+	inline-size: 300px;
+	padding: 0 4px;
+}
+
+// Sidebar search wrapper
+.search {
+	inset-block-start: 0;
+	z-index: 1;
+	margin: 0 12px 12px;
+	background-color: var(--fds-solid-background-base);
+
+	// Divider between the <TreeView /> and search box
+	hr {
+		margin: 12px 0 0;
+		border: none;
+		border-block-start: 1px solid var(--fds-divider-stroke-default);
+	}
+
+	// Mobile container
+	// Integrated into docs pages rather than in the sidebar
+	&-mobile {
+		display: none;
+		padding: 12px;
+		border-block-end: 1px solid var(--fds-divider-stroke-default);
+	}
+}
+
+// Search autosuggest
+.autosuggest {
+	// Wrapper for positioning it
+	// Both the flyout and the searchbox need to be contained within this
+	&-wrapper {
+		position: relative;
+	}
+
+	// Autosuggest flyout
+	&-flyout {
+		position: absolute;
+		inset-block-start: 100%;
+		inset-inline-start: 0;
+		z-index: 10;
+		inline-size: 100%;
+		max-block-size: 350px;
+		padding: 2px 0;
+		border: 1px solid var(--fds-surface-stroke-flyout);
+		border-radius: 0 0 var(--fds-overlay-corner-radius) var(--fds-overlay-corner-radius);
+		background-color: var(--fds-solid-background-quarternary);
+		box-shadow: var(--fds-flyout-shadow);
+	}
+}
+
+// Small device support
+@media (width < 768px) {
+	// Since we don't have a sidebar anymore, vertically stack the elements in the page
+	.docs {
+		flex-direction: column;
+		margin-block-start: 2px;
+		border-block-start: 1px solid var(--fds-card-stroke-default);
+	}
+
+	// Remove page rounding and borders
+	.page {
+		border: none;
+		border-radius: 0;
+
+		// The inconsistency between vertical and horizontal
+		// page padding looks good on desktop, but can be
+		// ugly on mobile.
+		&-inner {
+			padding: 16px 24px 24px;
+		}
+	}
+
+	.sidebar {
+		display: none;
+	}
+
+	.search-mobile {
+		display: block;
+	}
+}

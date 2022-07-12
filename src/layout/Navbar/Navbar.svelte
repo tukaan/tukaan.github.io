@@ -1,0 +1,152 @@
+<script lang="ts">
+	import { navigating, page } from "$app/stores";
+	import type { NavbarItem } from "$data/links";
+
+	import { externalLink, TreeView } from "$lib";
+	import { ListItem, Tooltip } from "fluent-svelte";
+	import Navigation from "@fluentui/svg-icons/icons/navigation_24_filled.svg?raw";
+
+	export let items: NavbarItem[] = [];
+	export let buttons = [];
+
+	let innerWidth = 769; // Don't render the mobile layout before hydration
+	let sidebarVisible = false;
+	let sidebar: HTMLElement;
+	let sidebarButton: HTMLButtonElement;
+
+	const toggleSidebar = () => {
+		sidebarVisible = !sidebarVisible;
+	};
+
+	const handleOuterClick = (e: MouseEvent) => {
+		if (!(
+			!sidebarVisible ||
+			e.target === sidebarButton ||
+			sidebarButton.contains(e.target as Node) ||
+			e.target === sidebar ||
+			sidebar.contains(e.target as Node)
+		)) {
+			toggleSidebar();
+		}
+	}
+
+	$: {
+		$navigating && (sidebarVisible = false);
+	}
+</script>
+
+<svelte:window bind:innerWidth on:click={handleOuterClick} />
+
+<header class="navbar">
+	<a class="logo" href="/" sveltekit:prefetch>
+		<img alt="Tukaan logo" class="logo-image" src="/branding/logo.png">
+		Tukaan
+	</a>
+	<div class="pages">
+		{#if innerWidth > 768}
+			{#each items as { name, path, external, icon, type }}
+				<a
+					class="item"
+					sveltekit:prefetch
+					class:selected={$page.url.pathname === path ||
+					($page.url.pathname.split("/").length > 1 &&
+						path.split("/").length > 1 &&
+						$page.url.pathname.startsWith(path) &&
+							!(path === "" || path === "/")) ||
+						(path === "/" && $page.url.pathname === "")}
+					href={path}
+					target={external ? "_blank" : undefined}
+					rel={external ? "noreferrer noopener" : undefined}
+				>
+				{name}
+				</a>
+			{/each}
+		{/if}
+	</div>
+	<div class="buttons">
+		{#if innerWidth > 768}
+			{#each buttons as { icon, href, label }}
+				<a
+					class="button"
+					{href}
+					aria-label={label}
+					title={label}
+					{...externalLink}
+				>{@html icon}</a>
+			{/each}
+		{:else}
+			<button
+				on:click={toggleSidebar}
+				bind:this={sidebarButton}
+				class="button sidebar-button"
+			>
+				{@html Navigation}
+			</button>
+		{/if}
+	</div>
+	<aside
+		bind:this={sidebar}
+		class="sidebar scroller"
+		class:visible={sidebarVisible}
+	>
+		{#each items as { name, path, external, sidebarTree, icon, type }}
+			{#if type === "divider"}
+				<hr>
+			{:else if !sidebarTree}
+				<ListItem
+					type="navigation"
+					sveltekit:prefetch
+					on:click={toggleSidebar}
+					selected={$page.url.pathname === path ||
+					($page.url.pathname.split("/").length > 1 &&
+							path.split("/").length > 1 &&
+							$page.url.pathname.startsWith(path) &&
+							!(path === "" || path === "/")) ||
+						(path === "/" && $page.url.pathname === "")}
+					href={path}
+					target={external ? "_blank" : undefined}
+					rel={external ? "noreferrer noopener" : undefined}
+				>
+					<svelte:fragment slot="icon">
+						{#if icon}
+							{@html icon}
+						{/if}
+					</svelte:fragment>
+					<span>{name}</span>
+				</ListItem>
+			{:else}
+				<TreeView
+					on:click={toggleSidebar}
+					tree={[
+						{
+							type: "category",
+							name,
+							icon,
+							pages: [...sidebarTree]
+						}
+					]}
+				/>
+			{/if}
+		{/each}
+		<hr>
+		{#each buttons as { icon, href, label }}
+			<ListItem
+				{href}
+				sveltekit:prefetch
+				type="navigation"
+				{...externalLink}
+			>
+				<svelte:fragment slot="icon">
+					{#if icon}
+						{@html icon}
+					{/if}
+				</svelte:fragment>
+				<span>{label}</span>
+			</ListItem>
+		{/each}
+	</aside>
+</header>
+
+<style lang="scss">
+	@use "./Navbar";
+</style>

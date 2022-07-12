@@ -1,0 +1,15 @@
+@use "../mixins" as *;
+
+.error-page {
+	@include flex($direction: column, $align: center, $justify: center);
+	flex: 1 1 auto;
+
+	h1 {
+		font: {
+			family: var(--font-family-caps);
+			size: calc(3rem + 7vw);;
+			weight: 600;
+		};
+		color: var(--fds-text-primary);
+	}
+}
