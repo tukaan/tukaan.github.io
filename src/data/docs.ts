@@ -33,6 +33,10 @@ export const docs: DocsMap[] = [
 			{
 				name: "Working with tabs",
 				path: "/basics/tabview"
+			}, 
+			{
+				name: "Separating widgets",
+				path: "/basics/separator"
 			}
 		]
 	},
@@ -48,6 +52,10 @@ export const docs: DocsMap[] = [
 				name: "Timing and scheduling functions",
 				path: "/misc/timing"
 			},
+			{
+				name: "Widget tooltips",
+				path: "/misc/tooltips"
+			}
 		]
 	},
 	{
