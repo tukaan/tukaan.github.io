@@ -15,10 +15,10 @@ def my_func():
 
 widget.bind("<KeyDown>", my_func)
 ```
-Or if you want do listen to an `Control+Shift+a`, you would use the `<KeyDown:(Ctrl-Shift-a)>` sequence. You can add any number of modifier keys to a sequence, separating them with hypens.
+Or if you want to listen to a the sequence `Control+Shift+a`, you would use the following: `<KeyDown:(Ctrl-Shift-a)>`. This signifies that you are listening for a keypress and that it must have the order `Control+Shift+a`. You can add any number of modifier keys to a sequence, separating them with hypens.
 
 ### Getting event info
-When you simply listen for the `<KeyDown:(a)>` event, you know exactly which keys will trigger the callback, however when you use the `<KeyDown:Any>` sequence, how do you know which character triggered the event? Well, it's actually pretty simple.
+When you simply listen for the `<KeyDown:(a)>` event, you know exactly which keys will trigger the callback, however when you use the `<KeyDown:Any>` sequence, how do you know which character triggered the event? Well, it's actually quite simple.
 
 You can set the `send_event` parameter on bind to `True`, so when an eventhappens, it will send a event object to the callback function.
 
