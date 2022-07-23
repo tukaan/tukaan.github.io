@@ -1,6 +1,6 @@
 {
   ".svelte-kit/runtime/client/start.js": {
-    "file": "immutable/start-61f9a3e3.js",
+    "file": "immutable/start-d686b560.js",
     "src": ".svelte-kit/runtime/client/start.js",
     "isEntry": true,
     "imports": [
@@ -15,24 +15,26 @@
       "src/routes/docs/basics/button.md",
       "src/routes/docs/basics/get-started.md",
       "src/routes/docs/basics/label.md",
+      "src/routes/docs/basics/separator.md",
       "src/routes/docs/basics/tabview.md",
       "src/routes/docs/basics/textbox.md",
       "src/routes/docs/basics/windows.md",
       "src/routes/docs/index.md",
       "src/routes/docs/misc/events.md",
       "src/routes/docs/misc/timing.md",
+      "src/routes/docs/misc/tooltips.md",
       "src/routes/index.svelte"
     ]
   },
   "src/routes/__layout.svelte": {
-    "file": "immutable/pages/__layout.svelte-3dd43c53.js",
+    "file": "immutable/pages/__layout.svelte-7d91a7ff.js",
     "src": "src/routes/__layout.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
       "_index-a8447449.js",
       "_Footer.svelte_svelte_type_style_lang-c35c75ae.js",
-      "_docs-24a4852c.js"
+      "_docs-f542d925.js"
     ],
     "css": [
       "immutable/assets/pages/__layout.svelte-7225bc50.css",
@@ -54,13 +56,13 @@
     ]
   },
   "src/routes/docs/__layout.svelte": {
-    "file": "immutable/pages/docs/__layout.svelte-7c9b8bb7.js",
+    "file": "immutable/pages/docs/__layout.svelte-61203565.js",
     "src": "src/routes/docs/__layout.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
       "_index-a8447449.js",
-      "_docs-24a4852c.js",
+      "_docs-f542d925.js",
       "_singletons-cdeec3fd.js",
       "_Metadata-369f14a5.js"
     ],
@@ -105,6 +107,15 @@
       "_index-a8447449.js"
     ]
   },
+  "src/routes/docs/basics/separator.md": {
+    "file": "immutable/pages/docs/basics/separator.md-4ad5035e.js",
+    "src": "src/routes/docs/basics/separator.md",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_index-a8447449.js"
+    ]
+  },
   "src/routes/docs/basics/tabview.md": {
     "file": "immutable/pages/docs/basics/tabview.md-8168f721.js",
     "src": "src/routes/docs/basics/tabview.md",
@@ -142,7 +153,7 @@
     ]
   },
   "src/routes/docs/misc/events.md": {
-    "file": "immutable/pages/docs/misc/events.md-53644a4b.js",
+    "file": "immutable/pages/docs/misc/events.md-2c003e50.js",
     "src": "src/routes/docs/misc/events.md",
     "isEntry": true,
     "isDynamicEntry": true,
@@ -153,6 +164,15 @@
   "src/routes/docs/misc/timing.md": {
     "file": "immutable/pages/docs/misc/timing.md-78c6937d.js",
     "src": "src/routes/docs/misc/timing.md",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_index-a8447449.js"
+    ]
+  },
+  "src/routes/docs/misc/tooltips.md": {
+    "file": "immutable/pages/docs/misc/tooltips.md-7e0b5c66.js",
+    "src": "src/routes/docs/misc/tooltips.md",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
@@ -189,8 +209,8 @@
       "immutable/assets/TreeView.svelte_svelte_type_style_lang-e18b664c.css"
     ]
   },
-  "_docs-24a4852c.js": {
-    "file": "immutable/chunks/docs-24a4852c.js",
+  "_docs-f542d925.js": {
+    "file": "immutable/chunks/docs-f542d925.js",
     "imports": [
       "_index-a8447449.js"
     ],

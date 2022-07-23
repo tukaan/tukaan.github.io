@@ -3,8 +3,8 @@
 	<head>
 		<meta charset="utf-8">
 		<meta content="width=device-width, initial-scale=1" name="viewport">
-		<meta http-equiv="content-security-policy" content=""><meta content="A modern, cross platform Python toolkit for creating desktop GUI applications" name="description" data-svelte="svelte-ddy29s"><meta content="A modern, cross platform Python toolkit for creating desktop GUI applications" name="og:description" data-svelte="svelte-ddy29s"><title>Tukaan • Docs - Buttons</title>
-<meta content="Tukaan • Docs - Buttons" name="og:title">
+		<meta http-equiv="content-security-policy" content=""><meta content="A modern, cross platform Python toolkit for creating desktop GUI applications" name="description" data-svelte="svelte-ddy29s"><meta content="A modern, cross platform Python toolkit for creating desktop GUI applications" name="og:description" data-svelte="svelte-ddy29s"><title>Tukaan • Docs - Separating widgets</title>
+<meta content="Tukaan • Docs - Separating widgets" name="og:title">
 <meta content="Tukaan" name="og:site_name">
 <meta content="The Tukaan team" name="author">
 <link href="/branding/logo.png" rel="icon" type="image/png">
@@ -20,7 +20,7 @@
 	<link rel="modulepreload" href="/_app/immutable/chunks/docs-f542d925.js">
 	<link rel="modulepreload" href="/_app/immutable/pages/docs/__layout.svelte-61203565.js">
 	<link rel="modulepreload" href="/_app/immutable/chunks/Metadata-369f14a5.js">
-	<link rel="modulepreload" href="/_app/immutable/pages/docs/basics/button.md-c48fb840.js">
+	<link rel="modulepreload" href="/_app/immutable/pages/docs/basics/separator.md-4ad5035e.js">
 	</head>
 
 	<body>
@@ -127,39 +127,34 @@
 </div>
 				</div></div>
 		<div class="page-inner markdown-body svelte-pu1q7x"><header class="svelte-pu1q7x">
-<a role="button" href="https://github.com/tukaan/tukaan.github.io/edit/main/src/routes/docs/basics/button.md" class="icon-button   svelte-1iys5lx" target="_blank" rel="noreferrer noopener"><!-- HTML_TAG_START --><svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.95 3.05a3.58 3.58 0 00-5.06 0L3.94 15c-.4.4-.7.92-.82 1.48l-1.1 4.6a.75.75 0 00.9.9l4.6-1.1A3.1 3.1 0 009 20.07L20.95 8.11a3.58 3.58 0 000-5.06zm-4 1.06a2.08 2.08 0 112.94 2.94l-.89.89L16.06 5l.9-.9zM15 6.06L17.94 9l-10 10a1.6 1.6 0 01-.76.43l-3.42.8.82-3.4c.06-.3.21-.56.42-.77l10-10z"/></svg><!-- HTML_TAG_END -->
+<a role="button" href="https://github.com/tukaan/tukaan.github.io/edit/main/src/routes/docs/basics/separator.md" class="icon-button   svelte-1iys5lx" target="_blank" rel="noreferrer noopener"><!-- HTML_TAG_START --><svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.95 3.05a3.58 3.58 0 00-5.06 0L3.94 15c-.4.4-.7.92-.82 1.48l-1.1 4.6a.75.75 0 00.9.9l4.6-1.1A3.1 3.1 0 009 20.07L20.95 8.11a3.58 3.58 0 000-5.06zm-4 1.06a2.08 2.08 0 112.94 2.94l-.89.89L16.06 5l.9-.9zM15 6.06L17.94 9l-10 10a1.6 1.6 0 01-.76.43l-3.42.8.82-3.4c.06-.3.21-.56.42-.77l10-10z"/></svg><!-- HTML_TAG_END -->
 </a></header>
-				<h1 id="the-button-widget">The <code>Button</code> widget</h1>
-<p>Buttons are among the most useful widgets used in GUI Applications. Learning how to use Buttons is crucial to a functional GUI. Buttons give responsiveness to an application and allow the user to perform actions. Let’s see them in action!</p>
-<p><img src="/resources/docs/button.png" alt="Image of a Tukaan button"></p>
-<h2 id="create-a-button-with-a-simple-callback">Create a button with a simple callback</h2>
-<p>Creating and displaying a button is very easy with Tukaan. We can specify its text and the function it should call when clicked.</p>
-<pre class="language-python"><!-- HTML_TAG_START --><code class="language-python"><span class="token keyword">def</span> <span class="token function">printy_func</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Hello, world!"</span><span class="token punctuation">)</span>
+				<h2 id="separating-widgets">Separating widgets</h2>
+<blockquote><p>Separators are commonly used to separate widgets or to help visualize groups of widgets</p></blockquote>
+<p>Separators are very useful for (as the name suggests) separating two or more items. In Tukaan they are used to separate widgets or to help visualize groups of widgets. As separators are a different type of widget than normal they can be a bit tricky to use.</p>
+<p><img src="/resources/docs/separator.png" alt="Image of a Tukaan separator"></p>
+<p>An example of how to set up a separator with <code>.position()</code> is as follows:</p>
+<pre class="language-python"><!-- HTML_TAG_START --><code class="language-python"><span class="token keyword">from</span> tukaan <span class="token keyword">import</span> App<span class="token punctuation">,</span> Separator
 
-my_button <span class="token operator">=</span> tukaan<span class="token punctuation">.</span>Button<span class="token punctuation">(</span>app<span class="token punctuation">,</span> text<span class="token operator">=</span><span class="token string">"Press me!"</span><span class="token punctuation">,</span> on_click<span class="token operator">=</span>printy_func<span class="token punctuation">)</span>
-my_button<span class="token punctuation">.</span>grid<span class="token punctuation">(</span><span class="token punctuation">)</span></code><!-- HTML_TAG_END --></pre>
-<p>And when you click the button, it prints “Hello, world!”</p>
-<p>We can later modify all these attributes as seen below:</p>
-<pre class="language-python"><!-- HTML_TAG_START --><code class="language-python">my_button<span class="token punctuation">.</span>text <span class="token operator">=</span> <span class="token string">"New text"</span>
+app <span class="token operator">=</span> App<span class="token punctuation">(</span><span class="token punctuation">)</span>
 
-my_button<span class="token punctuation">.</span>on_click <span class="token operator">=</span> <span class="token boolean">None</span></code><!-- HTML_TAG_END --></pre>
-<p>Output:</p>
-<pre class="language-undefined"><!-- HTML_TAG_START --><code class="language-undefined">Hello, world!</code><!-- HTML_TAG_END --></pre>
-<p>But what if we want to pass arguments to the button’s <code>on_click</code> callback?</p>
-<p>Well, if we just use parentheses, Python evaluates the call immediately, so we actually pass its return value to the button.</p>
-<pre class="language-python"><!-- HTML_TAG_START --><code class="language-python"><span class="token keyword">def</span> <span class="token function">another_func</span><span class="token punctuation">(</span><span class="token operator">*</span>args<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">print</span><span class="token punctuation">(</span>args<span class="token punctuation">)</span>
+separator <span class="token operator">=</span> Separator<span class="token punctuation">(</span>app<span class="token punctuation">)</span>
+separator<span class="token punctuation">.</span>position<span class="token punctuation">(</span>x<span class="token operator">=</span><span class="token number">10</span><span class="token punctuation">,</span> y<span class="token operator">=</span><span class="token number">30</span><span class="token punctuation">,</span> width<span class="token operator">=</span><span class="token number">280</span><span class="token punctuation">)</span>
 
-b <span class="token operator">=</span> tukaan<span class="token punctuation">.</span>Button<span class="token punctuation">(</span>app<span class="token punctuation">,</span> text<span class="token operator">=</span><span class="token string">"I'm buggy"</span><span class="token punctuation">,</span> on_click<span class="token operator">=</span>another_func<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-b<span class="token punctuation">.</span>grid<span class="token punctuation">(</span><span class="token punctuation">)</span></code><!-- HTML_TAG_END --></pre>
-<p>So to pass args or kwargs to the callback, we have to use an anonymous <a href><code>lambda</code></a> function.</p>
-<pre class="language-python"><!-- HTML_TAG_START --><code class="language-python">b <span class="token operator">=</span> tukaan<span class="token punctuation">.</span>Button<span class="token punctuation">(</span>app<span class="token punctuation">,</span> text<span class="token operator">=</span><span class="token string">"This works!"</span><span class="token punctuation">,</span> on_click<span class="token operator">=</span><span class="token keyword">lambda</span><span class="token punctuation">:</span> another_func<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-b<span class="token punctuation">.</span>grid<span class="token punctuation">(</span><span class="token punctuation">)</span></code><!-- HTML_TAG_END --></pre>
-<h2 id="invoke-the-button-from-the-code">Invoke the button from the code</h2>
-<p>When writing tests for a GUI application, you’ll probably run into the problem that you need to simulate clicking a button somehow. In Tukaan you can do this easily with the <code>.invoke</code> method.</p>
-<pre class="language-python"><!-- HTML_TAG_START --><code class="language-python">my_button<span class="token punctuation">.</span>invoke<span class="token punctuation">(</span><span class="token punctuation">)</span></code><!-- HTML_TAG_END --></pre>
-<p>And now the <code>on_click</code> callback is executed, just as if the user had pressed it.</p></div></article>
+app<span class="token punctuation">.</span>run<span class="token punctuation">(</span><span class="token punctuation">)</span></code><!-- HTML_TAG_END --></pre>
+<p>When using <code>.grid()</code> the proccess is slightly different:</p>
+<pre class="language-python"><!-- HTML_TAG_START --><code class="language-python"><span class="token keyword">from</span> tukaan <span class="token keyword">import</span> App<span class="token punctuation">,</span> Separator<span class="token punctuation">,</span> Label
+<span class="token keyword">from</span> tukaan<span class="token punctuation">.</span>enums <span class="token keyword">import</span> Align
+
+app <span class="token operator">=</span> App<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment">#Create some space between the edge of the window and the separator</span>
+
+Label<span class="token punctuation">(</span>app<span class="token punctuation">,</span> text<span class="token operator">=</span><span class="token string">"This is a label"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>grid<span class="token punctuation">(</span>row<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> col<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">)</span>
+
+Separator<span class="token punctuation">(</span>app<span class="token punctuation">,</span> orientation<span class="token operator">=</span><span class="token string">"horizontal"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>grid<span class="token punctuation">(</span>row<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span> col<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> align<span class="token operator">=</span>Align<span class="token punctuation">.</span>Stretch<span class="token punctuation">)</span>
+app<span class="token punctuation">.</span>run<span class="token punctuation">(</span><span class="token punctuation">)</span></code><!-- HTML_TAG_END --></pre>
+<blockquote><p>It is important to note that while <code>Align</code> is necessary for <code>.grid()</code> it can also be used for position by replacing <code>height=value</code> or <code>width=value</code> with <code>height=Align.Stretch</code> or <code>width=Align.Stretch</code>.</p></blockquote></div></article>
 </section>
 
 <footer id="page-footer" class="page-section  svelte-1090x36">
@@ -199,10 +194,10 @@ b<span class="token punctuation">.</span>grid<span class="token punctuation">(</
 </a></div></div></footer>
 
 
-		<script type="module" data-sveltekit-hydrate="yihhhz">
+		<script type="module" data-sveltekit-hydrate="9tevws">
 		import { start } from "/_app/immutable/start-d686b560.js";
 		start({
-			target: document.querySelector('[data-sveltekit-hydrate="yihhhz"]').parentNode,
+			target: document.querySelector('[data-sveltekit-hydrate="9tevws"]').parentNode,
 			paths: {"base":"","assets":""},
 			session: {},
 			route: true,
@@ -211,9 +206,9 @@ b<span class="token punctuation">.</span>grid<span class="token punctuation">(</
 			hydrate: {
 				status: 200,
 				error: null,
-				nodes: [0, 2, 4],
+				nodes: [0, 2, 7],
 				params: {},
-				routeId: "docs/basics/button"
+				routeId: "docs/basics/separator"
 			}
 		});
 	</script>

@@ -12,15 +12,15 @@
 	<link rel="stylesheet" href="/_app/immutable/assets/TreeView.svelte_svelte_type_style_lang-e18b664c.css">
 	<link rel="stylesheet" href="/_app/immutable/assets/Footer.svelte_svelte_type_style_lang-fd7b22b2.css">
 	<link rel="stylesheet" href="/_app/immutable/assets/pages/docs/__layout.svelte-00089720.css">
-	<link rel="modulepreload" href="/_app/immutable/start-61f9a3e3.js">
+	<link rel="modulepreload" href="/_app/immutable/start-d686b560.js">
 	<link rel="modulepreload" href="/_app/immutable/chunks/index-a8447449.js">
 	<link rel="modulepreload" href="/_app/immutable/chunks/singletons-cdeec3fd.js">
-	<link rel="modulepreload" href="/_app/immutable/pages/__layout.svelte-3dd43c53.js">
+	<link rel="modulepreload" href="/_app/immutable/pages/__layout.svelte-7d91a7ff.js">
 	<link rel="modulepreload" href="/_app/immutable/chunks/Footer.svelte_svelte_type_style_lang-c35c75ae.js">
-	<link rel="modulepreload" href="/_app/immutable/chunks/docs-24a4852c.js">
-	<link rel="modulepreload" href="/_app/immutable/pages/docs/__layout.svelte-7c9b8bb7.js">
+	<link rel="modulepreload" href="/_app/immutable/chunks/docs-f542d925.js">
+	<link rel="modulepreload" href="/_app/immutable/pages/docs/__layout.svelte-61203565.js">
 	<link rel="modulepreload" href="/_app/immutable/chunks/Metadata-369f14a5.js">
-	<link rel="modulepreload" href="/_app/immutable/pages/docs/misc/events.md-53644a4b.js">
+	<link rel="modulepreload" href="/_app/immutable/pages/docs/misc/events.md-2c003e50.js">
 	</head>
 
 	<body>
@@ -139,9 +139,9 @@
     <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"A key was pressed!"</span><span class="token punctuation">)</span>
 
 widget<span class="token punctuation">.</span>bind<span class="token punctuation">(</span><span class="token string">"&lt;KeyDown>"</span><span class="token punctuation">,</span> my_func<span class="token punctuation">)</span></code><!-- HTML_TAG_END --></pre>
-<p>Or if you want do listen to an <code>Control+Shift+a</code>, you would use the <code>&lt;KeyDown:(Ctrl-Shift-a)&gt;</code> sequence. You can add any number of modifier keys to a sequence, separating them with hypens.</p>
+<p>Or if you want to listen to a the sequence <code>Control+Shift+a</code>, you would use the following: <code>&lt;KeyDown:(Ctrl-Shift-a)&gt;</code>. This signifies that you are listening for a keypress and that it must have the order <code>Control+Shift+a</code>. You can add any number of modifier keys to a sequence, separating them with hypens.</p>
 <h3 id="getting-event-info">Getting event info</h3>
-<p>When you simply listen for the <code>&lt;KeyDown:(a)&gt;</code> event, you know exactly which keys will trigger the callback, however when you use the <code>&lt;KeyDown:Any&gt;</code> sequence, how do you know which character triggered the event? Well, it’s actually pretty simple.</p>
+<p>When you simply listen for the <code>&lt;KeyDown:(a)&gt;</code> event, you know exactly which keys will trigger the callback, however when you use the <code>&lt;KeyDown:Any&gt;</code> sequence, how do you know which character triggered the event? Well, it’s actually quite simple.</p>
 <p>You can set the <code>send_event</code> parameter on bind to <code>True</code>, so when an eventhappens, it will send a event object to the callback function.</p>
 <p>This event object has various properties depending on the event type. For a keyboard event you can access its character with the <code>char</code> attribute.</p>
 <pre class="language-python"><!-- HTML_TAG_START --><code class="language-python"><span class="token keyword">def</span> <span class="token function">my_func</span><span class="token punctuation">(</span>event<span class="token punctuation">)</span><span class="token punctuation">:</span>
@@ -206,10 +206,10 @@ widget<span class="token punctuation">.</span>generate_event<span class="token p
 </a></div></div></footer>
 
 
-		<script type="module" data-sveltekit-hydrate="1qr3e2u">
-		import { start } from "/_app/immutable/start-61f9a3e3.js";
+		<script type="module" data-sveltekit-hydrate="1xow4qg">
+		import { start } from "/_app/immutable/start-d686b560.js";
 		start({
-			target: document.querySelector('[data-sveltekit-hydrate="1qr3e2u"]').parentNode,
+			target: document.querySelector('[data-sveltekit-hydrate="1xow4qg"]').parentNode,
 			paths: {"base":"","assets":""},
 			session: {},
 			route: true,
@@ -218,7 +218,7 @@ widget<span class="token punctuation">.</span>generate_event<span class="token p
 			hydrate: {
 				status: 200,
 				error: null,
-				nodes: [0, 2, 11],
+				nodes: [0, 2, 12],
 				params: {},
 				routeId: "docs/misc/events"
 			}
