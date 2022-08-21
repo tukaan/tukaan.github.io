@@ -12,7 +12,7 @@ import tukaan
 
 app = tukaan.App()
 
-example_label = Label(app, text="Hello, World!")
+example_label = tukaan.Label(app, text="Hello, World!")
 
 # Place it on the window
 example_label.grid()
