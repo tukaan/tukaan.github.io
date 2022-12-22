@@ -74,6 +74,10 @@ export const docs: DocsMap[] = [
 				keywords: "multiple windows toplevel"
 			},
 			{
+				name: "Widget tooltips",
+				path: "/misc/tooltips"
+			},
+			{
 				name: "Dialogs",
 				path: "/misc/dialogs",
 				keywords: "dialog messagebox selector chooser picker color file date calendar about popup"
