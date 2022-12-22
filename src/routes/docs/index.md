@@ -12,8 +12,7 @@ With Tukaan you can build whatever you want. It includes a wide variety of widge
 
 ### 🔶 Tukaan is modern
 
-Tukaan does not try to mimic the look and feel of Motif or Windows 95. You can create interfaces that look native on Windows, macOS and GNOME, or theme it however you like, so the users might actually want to use it or 
-Unlike Tkinter, it has most of the features you expect from a GUI toolkit in the 21st century. No need to spend hours browsing random forums to figure out how to load a custom font file, such basic things are built in already!
+Tukaan does not try to mimic the look and feel of Motif or Windows 95. You can create interfaces that look native on Windows, macOS and GNOME, or theme it however you like, so the users might actually want to use it. Unlike Tkinter, it has most of the features you expect from a GUI toolkit in the 21st century. No need to spend hours browsing random forums to figure out how to load a custom font file, such basic things are built in already!
 
 
 ### 🔶 Tukaan is intuitive
