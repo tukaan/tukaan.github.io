@@ -44,7 +44,7 @@
 	</a>
 	<div class="pages">
 		{#if innerWidth > 768}
-			{#each items as { name, path, external, icon, type }}
+			{#each items as { name, path, external, type }}
 				<a
 					class="item"
 					sveltekit:prefetch
@@ -89,10 +89,9 @@
 		class="sidebar scroller"
 		class:visible={sidebarVisible}
 	>
+		<hr>
 		{#each items as { name, path, external, sidebarTree, icon, type }}
-			{#if type === "divider"}
-				<hr>
-			{:else if !sidebarTree}
+			{#if !sidebarTree}
 				<ListItem
 					type="navigation"
 					sveltekit:prefetch

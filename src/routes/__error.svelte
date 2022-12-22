@@ -24,7 +24,6 @@
 
 <section class="error-page">
 	<h1>{status}</h1>
-	<p>{error}</p>
 </section>
 
 <style lang="scss">

@@ -3,33 +3,36 @@
 
 	import { Footer, Navbar } from "$layout";
 	import { docs } from "$data/docs";
-	import { GitHub } from "$data/svg";
+	import { Python, GitHub } from "$data/images";
 
 	import "fluent-svelte/theme.css";
 
-	import Code from "@fluentui/svg-icons/icons/code_24_regular.svg?raw";
+	import Book from "@fluentui/svg-icons/icons/book_24_regular.svg?raw";
+	import Home from "@fluentui/svg-icons/icons/home_24_regular.svg?raw";
 
 	const navbarItems: NavbarItem[] = [
 		{
 			name: "Home",
-			path: "/"
+			path: "/",
+			icon: Home
 		},
 		{
 			name: "Docs",
 			path: "/docs",
 			sidebarTree: docs,
+			icon: Book
 		},
 	];
 
 	const navbarButtons = [
 		{
-			label: "Pypi",
-			href: `https://pypi.org/project/tukaan`,
-			icon: Code
+			label: "Tukaan on Pypi",
+			href: "https://pypi.org/project/tukaan",
+			icon: Python
 		},
 		{
-			label: "GitHub",
-			href: `https://github.com/tukaan/tukaan`,
+			label: "Source code on GitHub",
+			href: "https://github.com/tukaan/tukaan",
 			icon: GitHub
 		}
 	];
@@ -48,12 +51,13 @@
 
 <svelte:head>
 	<meta
-		content="A modern, cross platform Python toolkit for creating desktop GUI applications"
 		name="description"
+		content="A modern, cross platform Python toolkit for creating desktop GUI applications"
+		
 	>
 	<meta
-		content="A modern, cross platform Python toolkit for creating desktop GUI applications"
 		name="og:description"
+		content="A modern, cross platform Python toolkit for creating desktop GUI applications"
 	>
 </svelte:head>
 

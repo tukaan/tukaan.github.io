@@ -38,6 +38,7 @@
     inline-size: auto;
     block-size: 40px;
     margin-inline-end: 14px;
+    border-radius: 50%;
   }
 }
 
@@ -68,7 +69,7 @@
     &:after {
       content: "";
       background-color: var(--fds-accent-default);
-      width: 1.4em;
+      width: 1.2em;
       height: 4px;
       border-radius: 2px;
       position: absolute;
@@ -83,7 +84,7 @@
     color: var(--fds-text-secondary);
 
     &:after {
-      width: 1em;
+      width: 0.9em;
     }
   }
 }
@@ -133,7 +134,7 @@
   inset-block-start: 0;
   inset-inline-end: 0;
   display: none;
-  inline-size: 272px;
+  inline-size: 350px;
   block-size: 100vh;
   padding-block-start: 62px;
   border: 1px solid var(--fds-surface-stroke-default);
@@ -160,9 +161,11 @@
     inline-size: 100%;
     overflow: visible;
     padding: 18px 26px;
+    position: sticky;
   }
 
   .sidebar {
     display: block;
+    inline-size: 100vw;
   }
 }

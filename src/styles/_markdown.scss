@@ -4,7 +4,9 @@
 	color: var(--fds-text-primary);
 	font-size: 1.5rem;
 	line-height: 1.45;
+	margin-top: 20px;
 	margin-bottom: 40px;
+	max-width: 130ch;
 
 	// Spacing
 	> *:first-child {
@@ -234,5 +236,23 @@
 				background-color: transparent;
 			}
 		}
+	}
+}
+
+.content__header {
+	display: block;
+	position: relative;
+	top: 20px;
+	right: 20px;
+}
+
+@media (width < 768px) {
+	.markdown-body {
+		margin-top: 0;
+	}
+
+	.content__header {
+		top: 34px;
+		right: 30px;
 	}
 }

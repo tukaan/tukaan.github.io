@@ -47,7 +47,7 @@
 
 	export let pagePath = "";
 	export let docsPages: DocsMap[];
-	export let currentPage: DocsMap = { name: "Overview", path: "" };
+	export let currentPage: DocsMap = { name: "Get started", path: "" };
 
 	let value: string = "";
 	let searchQuery: string = "";
@@ -60,7 +60,7 @@
 
 	// Basic search matching for filtering docs pages
 	$: searchResults = docsPages.filter(page =>
-		page.name
+		page.name.concat(page.keywords)
 			.toLowerCase()
 			.replace(/ /gi, "")
 			.includes((searchQuery ?? "").toLowerCase().replace(/ /gi, ""))
@@ -199,20 +199,23 @@
 			</div>
 		</div>
 		{#key pagePath}
-			<div class="page-inner markdown-body"
-				in:fade|local={{ y: 6, duration: 200, delay: 200 }}
-			    out:fade|local={{ y: 6, duration: 200 }}
+		<header class="content__header">
+			<IconButton
+				href="https://github.com/tukaan/tukaan.github.io/edit/main/src/routes/docs{currentPage.path || '/index'}.md" {...externalLink}
+				style="color: var(--fds-accent-text-primary)"
+				title="Edit this page"
+				aria-label="Edit this page on Github"
 			>
-				<header>
-					<IconButton href="https://github.com/tukaan/tukaan.github.io/edit/main/src/routes/docs{currentPage.path ||
-							'/index'}.md"
-					        {...externalLink}
-					>
-						{@html Edit}
-					</IconButton>
-				</header>
-				<slot />
-			</div>
+				{@html Edit}
+			</IconButton>
+		</header>
+		<div
+			class="page-inner markdown-body"
+			in:fade|local={{ y: 6, duration: 100, delay: 200 }}
+		    out:fade|local={{ y: 6, duration: 200 }}
+		>
+			<slot />
+		</div>
 		{/key}
 	</article>
 </section>

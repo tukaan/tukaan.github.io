@@ -41,7 +41,7 @@
 .sidebar {
 	@include flex($direction: column);
 	flex: 0 0 auto;
-	inline-size: 300px;
+	inline-size: 350px;
 	padding: 0 4px;
 }
 
@@ -92,9 +92,8 @@
 	}
 }
 
-// Small device support
 @media (width < 768px) {
-	// Since we don't have a sidebar anymore, vertically stack the elements in the page
+	// Since we don't have a sidebar anymore, stack the elements vertically in the page
 	.docs {
 		flex-direction: column;
 		margin-block-start: 2px;

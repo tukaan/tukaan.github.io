@@ -1,5 +1,5 @@
 # Events and bindings
-As you have [learned before](/docs/basics/get-started#the-event-loop), all GUI applications work based on events. Each keypress and mouseclick is an event to which the application responds.<br>For example, when a key is pressed, its character get inserted into the textbox, and when a mouseclick happens, the button gets a different state, and its callback is executed. Tukaan handles these basic and necessary events on its own, but you can use bindings to listen for and handle any event you like. This gives you a endless possibilities for communicating with the user or within the program.
+As you have [learned before](/docs/basics/hello), all GUI applications work based on events. Each keypress and mouseclick is an event to which the application responds.<br>For example, when a key is pressed, its character get inserted into the textbox, and when a mouseclick happens, the button gets a different state, and its callback is executed. Tukaan handles these basic and necessary events on its own, but you can use bindings to listen for and handle any event you like. This gives you a endless possibilities for communicating with the user or within the program.
 
 
 ## Binding a function to an event
@@ -15,7 +15,7 @@ def my_func():
 
 widget.bind("<KeyDown>", my_func)
 ```
-Or if you want do listen to an `Control+Shift+a`, you would use the `<KeyDown:(Ctrl-Shift-a)>` sequence. You can add any number of modifier keys to a sequence, separating them with hypens.
+Or if you want do listen to an <kbd>Control+Shift+a</kbd>, you would use the `<KeyDown:(Ctrl-Shift-a)>` sequence. You can add any number of modifier keys to a sequence, separating them with hypens.
 
 ### Getting event info
 When you simply listen for the `<KeyDown:(a)>` event, you know exactly which keys will trigger the callback, however when you use the `<KeyDown:Any>` sequence, how do you know which character triggered the event? Well, it's actually pretty simple.

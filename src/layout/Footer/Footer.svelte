@@ -1,13 +1,12 @@
 <script lang="ts">
 	import { externalLink, PageSection } from "$lib";
 	import { Button, IconButton } from "fluent-svelte";
-	import { GitHub } from "$data/svg";
 </script>
 
 <PageSection type="footer" id="page-footer">
 	<div class="column">
 		<a class="logo" href="/" sveltekit:prefetch>
-			<img alt="Tukaan logo" height="32" src="/branding/tukaan.png" width="32">
+			<img alt="Tukaan logo" src="/branding/logo.png">
 			Tukaan
 		</a>
 		<p>Copyright © 2021 - {new Date().getFullYear()} The Tukaan team</p>

@@ -5,15 +5,14 @@
 	#hero-section {
 		position: relative;
 		overflow: hidden;
-		width: 99%;  // FIXME: This is a hack to disable side scrolling
-		block-size: 80vh;
-		min-block-size: 584px;
+		//width: 99%;  // FIXME: This is a hack to disable side scrolling
+		block-size: 76vh;
+		min-block-size: 420px;
 		max-block-size: 1024px;
 		border-block-end: 1px solid var(--fds-divider-stroke-default);
 		padding: 0 6rem;
 		background-image: radial-gradient(var(--fds-card-background-default) 3px, transparent 0);
 		background-size: 35px 35px;
-		transform: rotate(-1deg);
 
 		.page-section-inner {
 			position: relative;
@@ -21,7 +20,6 @@
 			grid-template-columns: 1fr 1.5fr;
 			align-items: center;
 			gap: 4rem;
-			transform: rotate(1deg);
 		}
 	}
 }
@@ -34,7 +32,7 @@
 		h1 {
 			text-transform: uppercase;
 			font-family: var(--font-family-caps);
-			font-size: calc(3rem + 7vw);
+			font-size: calc(3rem + 8vw);
 			font-weight: 600;
 			line-height: 0.9;
 		}
@@ -76,11 +74,12 @@
 					hsl(133, 67%, 59%),
 					
 				);
-			animation: rotate-hue 14s infinite linear;
+			animation: rotate-hue 18s linear infinite;
 		}
 
 		.pypi-command {
 			@include flex($align: center);
+			justify-content: space-between;
 			padding: 3rem 5rem;
 			border-radius: var(--fds-overlay-corner-radius);
 			background-color: var(--fds-solid-background-base);
@@ -94,35 +93,7 @@
 				white-space: pre;
 				color: var(--fds-text-primary);
 			}
-
-			.copy-button {
-				@include flex($align: center, $justify: center);
-				inline-size: 34px;
-				block-size: 34px;
-				margin-inline-start: 16px;
-				border: none;
-				border-radius: var(--fds-control-corner-radius);
-				background-color: transparent;
-				color: var(--fds-text-secondary);
-				cursor: pointer;
-				text-decoration: none;
-
-				&:hover {
-					background-color: var(--fds-subtle-fill-secondary);
-				}
-
-				&:active {
-					background-color: var(--fds-subtle-fill-tertiary);
-				}
-
-				:global(svg) {
-					transition: 130ms cubic-bezier(0.16, 0.16, 0, 1) transform;
-					@include icon($size: 18px);
-				}
-			}
 		}
-
-
 	}
 }
 
@@ -149,6 +120,27 @@
 			position: relative;
 			max-inline-size: 708px;
 			block-size: auto;
+		}
+	}
+}
+
+@media screen and (width < 768px) {
+	.hero-left h1 {
+		font-size: calc(3rem + 10vw);
+	}
+	.hero-right {
+		display: none;
+	}
+	:global {
+		#hero-section {
+			block-size: 10vh;
+			.page-section-inner {
+				position: relative;
+				display: flex;
+				grid-template-columns: 1fr;
+				align-items: center;
+				gap: 0;
+			}
 		}
 	}
 }
