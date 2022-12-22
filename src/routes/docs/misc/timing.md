@@ -1,6 +1,6 @@
 # Scheduling and sleeping
 
-Most of the time you use buttons or events to run a function in your Tukaan app. However, there are times, when you need to add some delay to it, or wait (sleep) some time (eg. with `time.sleep`).<br>Well, in a GUI application you can't do that. While suspending the execution, the event loop still needs to dispatch all sorts of window management and mouse movement events. You can read in detail on blocking the event loop [here](/docs/advanced/blocking).
+Most of the time you use buttons or events to run a function in your Tukaan app. However, there are times, when you need to add some delay to it, or wait (sleep) some time (eg. with `time.sleep`).<br>Well, in a GUI application you can't do that. While suspending the execution, the event loop still needs to dispatch all sorts of window management and mouse movement events. You can read in detail on blocking the event loop [here](/docs/advanced/concurrency).
 
 
 ## Using the Timer
