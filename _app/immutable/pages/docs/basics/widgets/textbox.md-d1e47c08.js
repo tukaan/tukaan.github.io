@@ -1,0 +1,19 @@
+import{S as R,i as q,s as A,e as r,t as c,k as H,c as k,a as x,h as u,d as t,m as C,b as G,g as i,R as e,n as P}from"../../../../chunks/index-cd4ba230.js";function L(I){let s,g,m,b,y,f,p,T,d,v,E,_,l,B,h,o,M=`<code class="language-python"><span class="token keyword">import</span> tukaan
+
+app <span class="token operator">=</span> tukaan<span class="token punctuation">.</span>App<span class="token punctuation">(</span><span class="token punctuation">)</span>
+window <span class="token operator">=</span> tukaan<span class="token punctuation">.</span>MainWindow<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+
+<span class="token keyword">def</span> <span class="token function">print_textbox_content</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+	input_from_textbox <span class="token operator">=</span> example_textbox<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token punctuation">)</span>
+	<span class="token keyword">print</span><span class="token punctuation">(</span>input_from_textbox<span class="token punctuation">)</span>
+
+
+example_textbox <span class="token operator">=</span> tukaan<span class="token punctuation">.</span>TextBox<span class="token punctuation">(</span>window<span class="token punctuation">)</span>
+example_textbox<span class="token punctuation">.</span>grid<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+submit_button <span class="token operator">=</span> tukaan<span class="token punctuation">.</span>Button<span class="token punctuation">(</span>window<span class="token punctuation">,</span> text<span class="token operator">=</span><span class="token string">"Submit"</span><span class="token punctuation">,</span> action<span class="token operator">=</span>print_textbox_content<span class="token punctuation">)</span>
+submit_button<span class="token punctuation">.</span>grid<span class="token punctuation">(</span>col<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span>
+
+
+app<span class="token punctuation">.</span>run<span class="token punctuation">(</span><span class="token punctuation">)</span></code>`;return{c(){s=r("h1"),g=c("Getting text input: The "),m=r("code"),b=c("TextBox"),y=c(" widget"),f=H(),p=r("p"),T=c("When creating almost any program programmer\u2019s will eventually come across the need for input from the user outside of clicking buttons. In Tukaan the program can get text input with the "),d=r("code"),v=c("TextBox"),E=c(" widget."),_=H(),l=r("p"),B=c("Here is a minimal example, until there\u2019s no real documentation:"),h=H(),o=r("pre"),this.h()},l(n){s=k(n,"H1",{id:!0});var a=x(s);g=u(a,"Getting text input: The "),m=k(a,"CODE",{});var S=x(m);b=u(S,"TextBox"),S.forEach(t),y=u(a," widget"),a.forEach(t),f=C(n),p=k(n,"P",{});var w=x(p);T=u(w,"When creating almost any program programmer\u2019s will eventually come across the need for input from the user outside of clicking buttons. In Tukaan the program can get text input with the "),d=k(w,"CODE",{});var W=x(d);v=u(W,"TextBox"),W.forEach(t),E=u(w," widget."),w.forEach(t),_=C(n),l=k(n,"P",{});var D=x(l);B=u(D,"Here is a minimal example, until there\u2019s no real documentation:"),D.forEach(t),h=C(n),o=k(n,"PRE",{class:!0});var O=x(o);O.forEach(t),this.h()},h(){G(s,"id","getting-text-input-the-textbox-widget"),G(o,"class","language-python")},m(n,a){i(n,s,a),e(s,g),e(s,m),e(m,b),e(s,y),i(n,f,a),i(n,p,a),e(p,T),e(p,d),e(d,v),e(p,E),i(n,_,a),i(n,l,a),e(l,B),i(n,h,a),i(n,o,a),o.innerHTML=M},p:P,i:P,o:P,d(n){n&&t(s),n&&t(f),n&&t(p),n&&t(_),n&&t(l),n&&t(h),n&&t(o)}}}class z extends R{constructor(s){super(),q(this,s,null,L,A,{})}}export{z as default};

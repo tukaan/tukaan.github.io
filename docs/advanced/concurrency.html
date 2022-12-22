@@ -3,8 +3,8 @@
 	<head>
 		<meta charset="utf-8">
 		<meta content="width=device-width, initial-scale=1" name="viewport">
-		<meta http-equiv="content-security-policy" content=""><meta name="description" content="A modern, cross platform Python toolkit for creating desktop GUI applications" data-svelte="svelte-1m5g8ca"><meta name="og:description" content="A modern, cross platform Python toolkit for creating desktop GUI applications" data-svelte="svelte-1m5g8ca"><title>Tukaan • Docs - Sleeping and scheduling</title>
-<meta content="Tukaan • Docs - Sleeping and scheduling" name="og:title">
+		<meta http-equiv="content-security-policy" content=""><meta name="description" content="A modern, cross platform Python toolkit for creating desktop GUI applications" data-svelte="svelte-1m5g8ca"><meta name="og:description" content="A modern, cross platform Python toolkit for creating desktop GUI applications" data-svelte="svelte-1m5g8ca"><title>Tukaan • Docs - Concurrency</title>
+<meta content="Tukaan • Docs - Concurrency" name="og:title">
 <meta content="Tukaan" name="og:site_name">
 <meta content="The Tukaan team" name="author">
 <link href="/branding/logo.png" rel="icon" type="image/png">
@@ -22,7 +22,7 @@
 	<link rel="modulepreload" href="/_app/immutable/pages/docs/__layout.svelte-86230dae.js">
 	<link rel="modulepreload" href="/_app/immutable/chunks/Metadata-4da14f47.js">
 	<link rel="modulepreload" href="/_app/immutable/chunks/IconButton-9f05d874.js">
-	<link rel="modulepreload" href="/_app/immutable/pages/docs/misc/timing.md-48dd0eeb.js">
+	<link rel="modulepreload" href="/_app/immutable/pages/docs/advanced/concurrency.md-eef8d376.js">
 	</head>
 
 	<body>
@@ -154,44 +154,38 @@
 </div>
 				</div></div>
 		<header class="content__header svelte-1rf4qve">
-<a role="button" href="https://github.com/tukaan/tukaan.github.io/edit/main/src/routes/docs/misc/timing.md" class="icon-button   svelte-1iys5lx" target="_blank" rel="noreferrer noopener" style="color: var(--fds-accent-text-primary)" title="Edit this page" aria-label="Edit this page on Github"><!-- HTML_TAG_START --><svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.95 3.05a3.58 3.58 0 00-5.06 0L3.94 15c-.4.4-.7.92-.82 1.48l-1.1 4.6a.75.75 0 00.9.9l4.6-1.1A3.1 3.1 0 009 20.07L20.95 8.11a3.58 3.58 0 000-5.06zm-4 1.06a2.08 2.08 0 112.94 2.94l-.89.89L16.06 5l.9-.9zM15 6.06L17.94 9l-10 10a1.6 1.6 0 01-.76.43l-3.42.8.82-3.4c.06-.3.21-.56.42-.77l10-10z"/></svg><!-- HTML_TAG_END -->
+<a role="button" href="https://github.com/tukaan/tukaan.github.io/edit/main/src/routes/docs/advanced/concurrency.md" class="icon-button   svelte-1iys5lx" target="_blank" rel="noreferrer noopener" style="color: var(--fds-accent-text-primary)" title="Edit this page" aria-label="Edit this page on Github"><!-- HTML_TAG_START --><svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.95 3.05a3.58 3.58 0 00-5.06 0L3.94 15c-.4.4-.7.92-.82 1.48l-1.1 4.6a.75.75 0 00.9.9l4.6-1.1A3.1 3.1 0 009 20.07L20.95 8.11a3.58 3.58 0 000-5.06zm-4 1.06a2.08 2.08 0 112.94 2.94l-.89.89L16.06 5l.9-.9zM15 6.06L17.94 9l-10 10a1.6 1.6 0 01-.76.43l-3.42.8.82-3.4c.06-.3.21-.56.42-.77l10-10z"/></svg><!-- HTML_TAG_END -->
 </a></header>
-		<div class="page-inner markdown-body svelte-1rf4qve"><h1 id="scheduling-and-sleeping">Scheduling and sleeping</h1>
-<p>Most of the time you use buttons or events to run a function in your Tukaan app. However, there are times, when you need to add some delay to it, or wait (sleep) some time (eg. with <code>time.sleep</code>).<br>Well, in a GUI application you can’t do that. While suspending the execution, the event loop still needs to dispatch all sorts of window management and mouse movement events. You can read in detail on blocking the event loop <a href="/docs/advanced/concurrency">here</a>.</p>
-<h2 id="using-the-timer">Using the Timer</h2>
-<h3 id="sleeping">Sleeping</h3>
-<p>If you need to wait some time like <code>time.sleep</code>, you can use Tukaan’s <code>Timer.wait</code> method instead.</p>
-<p>With <code>Timer.wait</code> you can sleep a specified time in seconds, just like <code>time.sleep</code>. However it doesn’t block the event loop, only the current thread, so your GUI doesn’t appear frozen.</p>
-<pre class="language-python"><!-- HTML_TAG_START --><code class="language-python">tukaan<span class="token punctuation">.</span>Timer<span class="token punctuation">.</span>wait<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span></code><!-- HTML_TAG_END --></pre>
-<h3 id="scheduling-functions">Scheduling functions</h3>
-<p>With the <code>Timer.schedule</code> method you can schedule a function to run after the specified time. The countdown will start immediately.</p>
-<p>You can pass positional and keyword arguments to this method with the <code>args</code> and <code>kwargs</code> parameters, so you don’t have to use lambda functions when you want to add arguments to the callback.
-With <code>Timer.schedule</code> you can schedule a function in the event loop to run after a specified time (in seconds).</p>
-<pre class="language-python"><!-- HTML_TAG_START --><code class="language-python"><span class="token keyword">def</span> <span class="token function">my_func</span><span class="token punctuation">(</span><span class="token operator">*</span>args<span class="token punctuation">,</span> <span class="token operator">**</span>kwargs<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">print</span><span class="token punctuation">(</span>args<span class="token punctuation">,</span> kwargs<span class="token punctuation">)</span>
+		<div class="page-inner markdown-body svelte-1rf4qve"><h1 id="blocking-the-event-loop">Blocking the event loop</h1>
+<p>If you do long-running operations in your GUI program, like <code>time.sleep(10)</code>, it will block the event loop from running, thus prevent it from processing events and redrawing the GUI, so neither the user nor the operating system (windowmanager) can interact/communicate with the window. For example Windows marks the window as “Not responding” after 5 seconds.</p>
+<blockquote><p>In a GUI application you shouldn’t do things that take longer than 0.1 seconds.
+But in case you need to do it, let’s look at what options we have.</p></blockquote>
+<h2 id="threading">Threading</h2>
+<p>Unfortunately, Tukaan isn’t thread-safe because it would make it significantly slower. This means that you can’t call most of Tukaan’s functions outside the main thread (e.g. you can generate a event in another thread, but you can’t create an image). However there are some ways to communicate between the threads, let’s look at them!</p>
+<h3 id="using-virtual-events">Using virtual events</h3>
+<p>A really nice way to communicate between threads in Tukaan is to use custom <a href="/docs/misc/events">virtual events</a>).
+With the <code>event_generate</code> method you can post a virtual event to the event loop, which will handle it, and you can even send arbitary Python objects as data with it.</p>
+<p>Here you can see that that the program starts a second thread, and the <code>time.sleep(4)</code> will block it for 4 seconds. Then it sends a virtual event to the event loop. This event has a function bound to it that will run in the main thread.</p>
+<pre class="language-python"><!-- HTML_TAG_START --><code class="language-python"><span class="token keyword">import</span> threading
+<span class="token keyword">import</span> time
+<span class="token keyword">import</span> tukaan
 
-tukaan<span class="token punctuation">.</span>Timer<span class="token punctuation">.</span>schedule<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span> my_func<span class="token punctuation">,</span> args<span class="token operator">=</span><span class="token punctuation">(</span><span class="token string">"a"</span><span class="token punctuation">,</span> <span class="token string">"r"</span><span class="token punctuation">,</span> <span class="token string">"g"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> kwargs<span class="token operator">=</span><span class="token punctuation">&#123;</span><span class="token string">"kwarg"</span><span class="token punctuation">:</span> <span class="token boolean">True</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span></code><!-- HTML_TAG_END --></pre>
-<h3 id="add-a-delay-to-a-function">Add a delay to a function</h3>
-<p>Instead of putting a <code>Timer.wait</code> to the beginning of a function, you can decorate it with the <code>Timer.delay</code> method.</p>
-<pre class="language-python"><!-- HTML_TAG_START --><code class="language-python"><span class="token decorator annotation punctuation">@tukaan<span class="token punctuation">.</span>Timer<span class="token punctuation">.</span>delay</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span>
-<span class="token keyword">def</span> <span class="token function">my_func</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"10 secs is up!"</span><span class="token punctuation">)</span>
+app <span class="token operator">=</span> tukaan<span class="token punctuation">.</span>App<span class="token punctuation">(</span><span class="token punctuation">)</span>
+window <span class="token operator">=</span> tukaan<span class="token punctuation">.</span>MainWindow<span class="token punctuation">(</span><span class="token punctuation">)</span>
 
-my_func<span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token comment"># Waits 10 secs before printing</span></code><!-- HTML_TAG_END --></pre>
-<h2 id="the-timeout">The <code>Timeout</code></h2>
-<p>The <code>Timeout</code> class is very similar to the <code>Timer.schedule</code> method, but it gives a lot more control on the countdown. You can start it whenever you want, cancel or repeat it, and start over the same Timeout. So it depends on your need whether you use <code>Timer.wait</code> or the <code>Timeout</code> class</p>
-<pre class="language-python"><!-- HTML_TAG_START --><code class="language-python"><span class="token keyword">def</span> <span class="token function">my_func</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"10 secs is up! Starting over."</span><span class="token punctuation">)</span>
-    timeout<span class="token punctuation">.</span>start<span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token comment"># Start the same timeout again</span>
+<span class="token keyword">def</span> <span class="token function">this_is_a_blocking_func</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    time<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span>  <span class="token comment"># Block the thread</span>
+    this_is_a_data <span class="token operator">=</span> <span class="token string">"Hi! I'm from another thread!"</span>
+    window<span class="token punctuation">.</span>generate_event<span class="token punctuation">(</span><span class="token string">"&lt;&lt;VirtualEventFromAnotherThread>>"</span><span class="token punctuation">,</span> data<span class="token operator">=</span>this_is_a_data<span class="token punctuation">)</span>
 
-timeout <span class="token operator">=</span> Timeout<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span> my_func<span class="token punctuation">)</span>
-timeout<span class="token punctuation">.</span>start<span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token comment"># The start method starts the countdown</span></code><!-- HTML_TAG_END --></pre>
-<h3 id="cancelling-a-pending-timeout">Cancelling a pending timeout</h3>
-<p>You can cancel a pending countdown with the <code>.cancel</code> method. This method will raise an error, if the timeout has already run or hasn’t yet been started.</p>
-<pre class="language-python"><!-- HTML_TAG_START --><code class="language-python">timeout<span class="token punctuation">.</span>cancel<span class="token punctuation">(</span><span class="token punctuation">)</span></code><!-- HTML_TAG_END --></pre>
-<h3 id="repeating-a-timeout">Repeating a timeout</h3>
-<p>The <code>.repeat</code> method will start the countdown, and repeat it over and over when it’s finished.</p>
-<pre class="language-python"><!-- HTML_TAG_START --><code class="language-python">timeout<span class="token punctuation">.</span>repeat<span class="token punctuation">(</span><span class="token punctuation">)</span></code><!-- HTML_TAG_END --></pre></div></article>
+<span class="token keyword">def</span> <span class="token function">event_receiver</span><span class="token punctuation">(</span>event<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"Event received with data: </span><span class="token interpolation"><span class="token punctuation">&#123;</span>event<span class="token punctuation">.</span>data<span class="token punctuation">&#125;</span></span><span class="token string">"</span></span><span class="token punctuation">)</span>
+
+window<span class="token punctuation">.</span>bind<span class="token punctuation">(</span><span class="token string">"&lt;&lt;VirtualEventFromAnotherThread>>"</span><span class="token punctuation">,</span> event_receiver<span class="token punctuation">,</span> send_event<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+
+threading<span class="token punctuation">.</span>Thread<span class="token punctuation">(</span>target<span class="token operator">=</span>this_is_a_blocking_func<span class="token punctuation">)</span><span class="token punctuation">.</span>start<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+app<span class="token punctuation">.</span>run<span class="token punctuation">(</span><span class="token punctuation">)</span></code><!-- HTML_TAG_END --></pre></div></article>
 </section>
 
 <footer id="page-footer" class="page-section  svelte-1090x36">
@@ -231,10 +225,10 @@ timeout<span class="token punctuation">.</span>start<span class="token punctuati
 </a></div></div></footer>
 
 
-		<script type="module" data-sveltekit-hydrate="1dikr6s">
+		<script type="module" data-sveltekit-hydrate="18ts10y">
 		import { start } from "/_app/immutable/start-35f2fd37.js";
 		start({
-			target: document.querySelector('[data-sveltekit-hydrate="1dikr6s"]').parentNode,
+			target: document.querySelector('[data-sveltekit-hydrate="18ts10y"]').parentNode,
 			paths: {"base":"","assets":""},
 			session: {},
 			route: true,
@@ -243,9 +237,9 @@ timeout<span class="token punctuation">.</span>start<span class="token punctuati
 			hydrate: {
 				status: 200,
 				error: null,
-				nodes: [0, 2, 21],
+				nodes: [0, 2, 4],
 				params: {},
-				routeId: "docs/misc/timing"
+				routeId: "docs/advanced/concurrency"
 			}
 		});
 	</script>
