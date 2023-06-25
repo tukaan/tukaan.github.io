@@ -12,7 +12,7 @@
 	<link rel="stylesheet" href="/_app/immutable/assets/TreeView.svelte_svelte_type_style_lang-e18b664c.css">
 	<link rel="stylesheet" href="/_app/immutable/assets/Footer.svelte_svelte_type_style_lang-32f2ae84.css">
 	<link rel="stylesheet" href="/_app/immutable/assets/pages/docs/__layout.svelte-b52ab809.css">
-	<link rel="modulepreload" href="/_app/immutable/start-541ad1b8.js">
+	<link rel="modulepreload" href="/_app/immutable/start-4a8bf871.js">
 	<link rel="modulepreload" href="/_app/immutable/chunks/index-cd4ba230.js">
 	<link rel="modulepreload" href="/_app/immutable/chunks/singletons-cdeec3fd.js">
 	<link rel="modulepreload" href="/_app/immutable/pages/__layout.svelte-35c27f22.js">
@@ -22,7 +22,7 @@
 	<link rel="modulepreload" href="/_app/immutable/pages/docs/__layout.svelte-86230dae.js">
 	<link rel="modulepreload" href="/_app/immutable/chunks/Metadata-4da14f47.js">
 	<link rel="modulepreload" href="/_app/immutable/chunks/IconButton-9f05d874.js">
-	<link rel="modulepreload" href="/_app/immutable/pages/docs/advanced/behind-the-scenes.md-a6e53b7f.js">
+	<link rel="modulepreload" href="/_app/immutable/pages/docs/advanced/behind-the-scenes.md-2e8e4c91.js">
 	</head>
 
 	<body>
@@ -161,7 +161,7 @@
 <pre class="language-python"><!-- HTML_TAG_START --><code class="language-python"><span class="token keyword">from</span> tukaan<span class="token punctuation">.</span>_tcl <span class="token keyword">import</span> Tcl</code><!-- HTML_TAG_END --></pre>
 <h2 id="calling-tcl-from-python">Calling Tcl from Python</h2>
 <blockquote><p>There are two methods to call Tcl code in Tukaan.</p></blockquote>
-<p>The first is the <code>Tcl.call</code> method. You can pass in arbitary number of argument of any type (see <code>Tcl.to</code> below), and it will evaluate it. The first argument is always the ruturn type of the call, if you don’t expect any return it should be <code>None</code></p>
+<p>The first is the <code>Tcl.call</code> method. You can pass in arbitary number of argument of any type (see <code>Tcl.to</code> below), and it will evaluate it. The first argument is always the return type of the call, if you don’t expect any return it should be <code>None</code></p>
 <pre class="language-python"><!-- HTML_TAG_START --><code class="language-python"><span class="token operator">>></span><span class="token operator">></span> Tcl<span class="token punctuation">.</span>call<span class="token punctuation">(</span><span class="token boolean">None</span><span class="token punctuation">,</span> <span class="token string">"grid"</span><span class="token punctuation">,</span> textbox_widget<span class="token punctuation">,</span> <span class="token operator">*</span>Tcl<span class="token punctuation">.</span>to_tcl_args<span class="token punctuation">(</span>column<span class="token operator">=</span><span class="token number">3</span><span class="token punctuation">,</span> rowspan<span class="token operator">=</span><span class="token number">8</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 <span class="token boolean">None</span>
 <span class="token operator">>></span><span class="token operator">></span> Tcl<span class="token punctuation">.</span>call<span class="token punctuation">(</span><span class="token builtin">str</span><span class="token punctuation">,</span> textbox_widget<span class="token punctuation">,</span> <span class="token string">"get"</span><span class="token punctuation">)</span>
@@ -184,7 +184,7 @@ If an object has a <code>__to_tcl__</code> method, but no <code>_name</code>, <c
 		<div class="page-section-inner svelte-1090x36"><div class="column svelte-tq7whh"><a class="logo svelte-tq7whh" href="/" sveltekit:prefetch><img alt="Tukaan logo" src="/branding/logo.png" class="svelte-tq7whh">
 			Tukaan
 		</a>
-		<p>Copyright © 2021 - 2022 The Tukaan team</p></div>
+		<p>Copyright © 2021 - 2023 The Tukaan team</p></div>
 	<div class="column svelte-tq7whh"><p>Pages</p>
 		
 <a role="button" href="/" class="button style-hyperlink   svelte-nqc07q" sveltekit:prefetch>Home
@@ -217,10 +217,10 @@ If an object has a <code>__to_tcl__</code> method, but no <code>_name</code>, <c
 </a></div></div></footer>
 
 
-		<script type="module" data-sveltekit-hydrate="1c1fj45">
-		import { start } from "/_app/immutable/start-541ad1b8.js";
+		<script type="module" data-sveltekit-hydrate="15ptfqs">
+		import { start } from "/_app/immutable/start-4a8bf871.js";
 		start({
-			target: document.querySelector('[data-sveltekit-hydrate="1c1fj45"]').parentNode,
+			target: document.querySelector('[data-sveltekit-hydrate="15ptfqs"]').parentNode,
 			paths: {"base":"","assets":""},
 			session: {},
 			route: true,
