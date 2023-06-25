@@ -9,7 +9,7 @@ from tukaan._tcl import Tcl
 ## Calling Tcl from Python
 > There are two methods to call Tcl code in Tukaan.
 
-The first is the `Tcl.call` method. You can pass in arbitary number of argument of any type (see `Tcl.to` below), and it will evaluate it. The first argument is always the ruturn type of the call, if you don't expect any return it should be `None`
+The first is the `Tcl.call` method. You can pass in arbitary number of argument of any type (see `Tcl.to` below), and it will evaluate it. The first argument is always the return type of the call, if you don't expect any return it should be `None`
 
 ```python
 >>> Tcl.call(None, "grid", textbox_widget, *Tcl.to_tcl_args(column=3, rowspan=8))
