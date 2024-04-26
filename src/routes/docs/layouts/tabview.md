@@ -31,7 +31,7 @@ app.run()
 
 ## `Tab` Options
 
-The `TabView` widget allows users to create `Tab`'s as shown above that act as `Container`'s. The unique methods available to `Tab`'s and a description of each method are as follows:
+The `TabView` widget allows users to create `Tab`'s as shown above that act as container's. The unique methods available to `Tab`'s and a description of each method are as follows:
 
 | Method | Description|
 |-|-|
