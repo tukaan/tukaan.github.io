@@ -2,7 +2,7 @@
 
 ![Image of a Tukaan tabview](/resources/docs/tabview.png)
 
-The `TabView` widget allows you to have multiple tabs where you can place widgets like any other `Container`. An example of how to set up a TabView widget is as follows:
+The `TabView` widget allows you to have multiple tabs where you can place widgets like any other container widget. An example of how to set up a TabView widget is as follows:
 
 ```python
 import tukaan
