@@ -39,7 +39,7 @@ The `TabView` widget allows users to create `Tab`'s as shown above that act as `
 | `.move(new_index: int)` | Moves the `Tab` to the specified index in the ordering (left to right) of the `TabView` |
 | `.hide()` | Hides the `Tab` visually but is still considered to be in the `TabView` |
 | `.unhide()` | Shows the `Tab` again where it was before |
-| `.remove()` | Removes the `Tab` from the list internally |
+| `.remove()` | Removes the `Tab` from the `TabView`, and can only be shown again by calling `.append()` |
 | `.append()` | Adds the `Tab` to the `TabView` at the end of the line |
 
 Additionally the `Tab` also has the following unique attributes:
