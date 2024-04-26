@@ -6,14 +6,14 @@ Buttons are the most basic but also the most essential part of a graphical user 
 Creating a button is quite simple. We can specify its the text to display on the button and the function it should call when clicked.
 
 ```python
-def asdf():
-    print("Hello, world!")
+def foo():
+    print("bar")
 
-button = tukaan.Button(window, text="Press me!", action=asdf)
+button = tukaan.Button(window, text="Press me!", action=foo)
 button.grid()
 ```
 
-And when you click the button, it prints "Hello, world!"
+And when you click the button, it prints "bar"
 
 We can later modify all these attributes in the same way as for the `Label` widget:
 ```python
