@@ -58,7 +58,7 @@ The `TabView` also has a couple useful methods. They go as follows:
 | Method| Description|
 |-|-|
 | `.on_tab_change(func: Callable[[Tab | None], None]) -> Callable[[], None]` | Binds a function that is called any time tab is changed |
-| `.enable_keyboard_traversal()` | Enables traversal o
+| `.enable_keyboard_traversal()` | Enables navigating the tabs with the keyboard
 | `.index(self, tab: Tab) -> int` | Returns the index of a given `Tab` inside the `TabView` |
 
 It also has the following attribute:
