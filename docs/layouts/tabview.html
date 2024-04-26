@@ -12,7 +12,7 @@
 	<link rel="stylesheet" href="/_app/immutable/assets/TreeView.svelte_svelte_type_style_lang-e18b664c.css">
 	<link rel="stylesheet" href="/_app/immutable/assets/Footer.svelte_svelte_type_style_lang-32f2ae84.css">
 	<link rel="stylesheet" href="/_app/immutable/assets/pages/docs/__layout.svelte-b52ab809.css">
-	<link rel="modulepreload" href="/_app/immutable/start-4a8bf871.js">
+	<link rel="modulepreload" href="/_app/immutable/start-7650bc05.js">
 	<link rel="modulepreload" href="/_app/immutable/chunks/index-cd4ba230.js">
 	<link rel="modulepreload" href="/_app/immutable/chunks/singletons-cdeec3fd.js">
 	<link rel="modulepreload" href="/_app/immutable/pages/__layout.svelte-35c27f22.js">
@@ -22,7 +22,7 @@
 	<link rel="modulepreload" href="/_app/immutable/pages/docs/__layout.svelte-86230dae.js">
 	<link rel="modulepreload" href="/_app/immutable/chunks/Metadata-4da14f47.js">
 	<link rel="modulepreload" href="/_app/immutable/chunks/IconButton-9f05d874.js">
-	<link rel="modulepreload" href="/_app/immutable/pages/docs/layouts/tabview.md-60ea063e.js">
+	<link rel="modulepreload" href="/_app/immutable/pages/docs/layouts/tabview.md-685c45ec.js">
 	</head>
 
 	<body>
@@ -158,7 +158,7 @@
 </a></header>
 		<div class="page-inner markdown-body svelte-1rf4qve"><h1 id="working-with-tabs-the-tabview-widget">Working with tabs: The <code>TabView</code> widget</h1>
 <p><img src="/resources/docs/tabview.png" alt="Image of a Tukaan tabview"></p>
-<p>An example of how to set up a TabView widget is as follows:</p>
+<p>The <code>TabView</code> widget allows you to have multiple tabs where you can place widgets like any other container widget. An example of how to set up a TabView widget is as follows:</p>
 <pre class="language-python"><!-- HTML_TAG_START --><code class="language-python"><span class="token keyword">import</span> tukaan
 
 
@@ -180,15 +180,55 @@ button_1<span class="token punctuation">.</span>grid<span class="token punctuati
 button_2 <span class="token operator">=</span> tukaan<span class="token punctuation">.</span>Button<span class="token punctuation">(</span>tab_2<span class="token punctuation">,</span> <span class="token string">"Button in tab 2"</span><span class="token punctuation">)</span>
 button_2<span class="token punctuation">.</span>grid<span class="token punctuation">(</span>margin<span class="token operator">=</span><span class="token number">20</span><span class="token punctuation">)</span>
 
-app<span class="token punctuation">.</span>run<span class="token punctuation">(</span><span class="token punctuation">)</span>
-</code><!-- HTML_TAG_END --></pre></div></article>
+app<span class="token punctuation">.</span>run<span class="token punctuation">(</span><span class="token punctuation">)</span></code><!-- HTML_TAG_END --></pre>
+<h2 id="tab-options"><code>Tab</code> Options</h2>
+<p>The <code>TabView</code> widget allows users to create <code>Tab</code>’s as shown above that act as container’s. The unique methods available to <code>Tab</code>’s and a description of each method are as follows:</p>
+<table><thead><tr><th>Method</th>
+<th>Description</th></tr></thead>
+<tbody><tr><td><code>.select()</code></td>
+<td>Sets the <code>Tab</code> showing in the <code>TabView</code> to the <code>Tab</code> this is called on</td></tr>
+<tr><td><code>.move(new_index: int)</code></td>
+<td>Moves the <code>Tab</code> to the specified index in the ordering (left to right) of the <code>TabView</code></td></tr>
+<tr><td><code>.hide()</code></td>
+<td>Hides the <code>Tab</code> visually but is still considered to be in the <code>TabView</code></td></tr>
+<tr><td><code>.unhide()</code></td>
+<td>Shows the <code>Tab</code> again where it was before</td></tr>
+<tr><td><code>.remove()</code></td>
+<td>Removes the <code>Tab</code> from the <code>TabView</code>, and can only be shown again by calling <code>.append()</code></td></tr>
+<tr><td><code>.append()</code></td>
+<td>Adds the <code>Tab</code> to the <code>TabView</code> at the end of the line</td></tr></tbody></table>
+<p>Additionally the <code>Tab</code> also has the following unique attributes:
+| Atrribute | Type | Description |
+|-|-|-|
+| <code>enabled</code> | <code>bool</code> | Changes the <code>Tab</code> to either be enabled or disabled |
+| <code>title</code> | <code>str</code> | Changes the displayed name of the <code>Tab</code> |
+| <code>icon</code> | <code>Icon</code> or <code>Image.Image</code> | Displays the given icon (left side by default) |
+| <code>image_pos</code> | <code>str</code> | Sets the position of the icon in the specified direction |
+| <code>margin</code> | <code>int</code> or <code>tuple[int, ...]</code> | Sets the margins of the <code>Tab</code> |</p>
+<h2 id="tabview-options"><code>TabView</code> Options</h2>
+<p>The <code>TabView</code> also has a couple useful methods. They go as follows:</p>
+<table><thead><tr><th>Method</th>
+<th>Description</th></tr></thead>
+<tbody><tr><td>`.on_tab_change(func: Callable[[Tab</td>
+<td>None], None]) -&gt; Callable[[], None]`</td></tr>
+<tr><td><code>.enable_keyboard_traversal()</code></td>
+<td>Enables navigating the tabs with the keyboard</td></tr>
+<tr><td><code>.index(self, tab: Tab) -&gt; int</code></td>
+<td>Returns the index of a given <code>Tab</code> inside the <code>TabView</code></td></tr></tbody></table>
+<p>It also has the following attribute:</p>
+<table><thead><tr><th>Atrribute</th>
+<th>Type</th>
+<th>Description</th></tr></thead>
+<tbody><tr><td><code>selected</code></td>
+<td><code>Tab</code></td>
+<td>Changes the selected <code>Tab</code> to the be the one its set equal to</td></tr></tbody></table></div></article>
 </section>
 
 <footer id="page-footer" class="page-section  svelte-1090x36">
 		<div class="page-section-inner svelte-1090x36"><div class="column svelte-tq7whh"><a class="logo svelte-tq7whh" href="/" sveltekit:prefetch><img alt="Tukaan logo" src="/branding/logo.png" class="svelte-tq7whh">
 			Tukaan
 		</a>
-		<p>Copyright © 2021 - 2023 The Tukaan team</p></div>
+		<p>Copyright © 2021 - 2024 The Tukaan team</p></div>
 	<div class="column svelte-tq7whh"><p>Pages</p>
 		
 <a role="button" href="/" class="button style-hyperlink   svelte-nqc07q" sveltekit:prefetch>Home
@@ -221,10 +261,10 @@ app<span class="token punctuation">.</span>run<span class="token punctuation">(<
 </a></div></div></footer>
 
 
-		<script type="module" data-sveltekit-hydrate="n4ph9y">
-		import { start } from "/_app/immutable/start-4a8bf871.js";
+		<script type="module" data-sveltekit-hydrate="1kq743a">
+		import { start } from "/_app/immutable/start-7650bc05.js";
 		start({
-			target: document.querySelector('[data-sveltekit-hydrate="n4ph9y"]').parentNode,
+			target: document.querySelector('[data-sveltekit-hydrate="1kq743a"]').parentNode,
 			paths: {"base":"","assets":""},
 			session: {},
 			route: true,
